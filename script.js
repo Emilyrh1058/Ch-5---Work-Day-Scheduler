@@ -1,6 +1,5 @@
 var containerEl = document.querySelector(".container")
 var currentDayEl = document.getElementById("currentDay")
-
 function loadCurrent() {
     var currentDay = moment().format("ddd, MMMM Do YYYY");
     currentDayEl.textContent = currentDay
