@@ -1,25 +1,57 @@
 var containerEl = document.querySelector(".container")
-console.log(containerEl)
-
 var currentDayEl = document.getElementById("currentDay")
-console.log(currentDayEl)
 
 function loadCurrent() {
     var currentDay = moment().format("ddd, MMMM Do YYYY");
     currentDayEl.textContent = currentDay
 }
-
-loadCurrent()
+loadCurrent();
 
 var beginningTime = moment().format("HH")
 console.log(beginningTime)
 
-//var endTime = 
+$(document).ready(function () {
+    
+    $(".saveBtn").on("click", function () {
+        var text = $(this).siblings(".description").val();
+        var time = $(this).parent().attr("id");
 
+        localStorage.setItem(time, text);
+    })
+}); 
 
+function timeTracker() {
+        
 
+    $(".time-block").each(function () {
+        var blockTime = parseInt($(this).attr("id").split("hour")[1]);
 
+        if (blockTime < beginningTime) {
+            $(this).removeClass("future");
+            $(this).removeClass("present");
+            $(this).addClass("past");
+        }
+        else if (blockTime === beginningTime) {
+            $(this).removeClass("past");
+            $(this).removeClass("future");
+            $(this).addClass("present");
+        }
+        else {
+            $(this).removeClass("present");
+            $(this).removeClass("past");
+            $(this).addClass("future");
 
-// look up the moment.js current hour (to compare the time with the work hour)
-// look through previous mods/assignment for for each *employee
-// add something to html to compare with beginning time
+        }
+    })
+}
+$("#hour9 .description").val(localStorage.getItem("hour9"));
+$("#hour10 .description").val(localStorage.getItem("hour10"));
+$("#hour11 .description").val(localStorage.getItem("hour11"));
+$("#hour12 .description").val(localStorage.getItem("hour12"));
+$("#hour13 .description").val(localStorage.getItem("hour13"));
+$("#hour14 .description").val(localStorage.getItem("hour14"));
+$("#hour15 .description").val(localStorage.getItem("hour15"));
+$("#hour16 .description").val(localStorage.getItem("hour16"));
+$("#hour17 .description").val(localStorage.getItem("hour17"));
+
+timeTracker();
