@@ -21,8 +21,14 @@ body {
     border-bottom: 10px solid black;
   }
   
+
+
+
   .description{
     white-space: pre-wrap;
+    background-color: #ffffff;
+    color: #000000;
+    border-top: 1px solid #000000;
   }
   
   .time-block{
@@ -31,15 +37,15 @@ body {
   }
   
   .row {
-    white-space: pre-wrap;
     height: 80px;
-    border-top: 1px solid white;;
+    border-top: 1px solid white;
   }
   
   .hour {
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
+    text-align: center;
   }
   
   .past {
@@ -63,6 +69,7 @@ body {
     border-bottom-right-radius: 15px;
     background-color: #06AED5;
     color: white;
+    padding: 1px;
   }
   
   .saveBtn i:hover {
@@ -78,10 +85,10 @@ body {
     outline: none;
   }
   
-  /* @media screen and (max-width:768px), screen and (max-width: 575px) {
+  @media screen and (max-width:768px), screen and (max-width: 575px) {
     .row {
     height: auto;
-    margin-top: px;
+    margin-top: 5px;
     }
 
     .hour {
@@ -96,6 +103,5 @@ body {
 
     textarea {
       min-height: 100px;
-      border: 0;
-    } */
-  
+      border: 1px;
+    }
