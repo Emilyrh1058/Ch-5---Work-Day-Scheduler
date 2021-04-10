@@ -1,3 +1,5 @@
+
+
 var displayCurrent = document.getElementById("currentDay")
 var todayDateTime = moment().format("dddd, MMMM Do YYYY, h:mm a");
 
@@ -9,7 +11,6 @@ loadCurrent();
 $("currentDay").html(todayDateTime);
 
 $(document).ready(function() {
-
     $(".saveBtn").on("click", function () {
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
@@ -17,11 +18,12 @@ $(document).ready(function() {
         localStorage.setItem(time, text);
     })
 
+// color change
 function timeTracker() {
     var beginningTime = moment().hour();
 
     $(".time-block").each(function () {
-        var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+        var blockTime = parseInt($(this).attr("id"));
 
         if (blockTime < beginningTime) {
             $(this).removeClass("future");
@@ -40,30 +42,8 @@ function timeTracker() {
         }
     })
 }
-
-function changeColor() {
-    var textRow = document.getElementsByClassName("row");
-    let currentHour = parseInt(moment().format('H'));
-
-    Array.from(textRow).forEach(row => {
-        let
-            rowIdString = row.id,
-            rowHour;
-        if (rowIdString) {
-            rowHour = parseInt(rowIdString);
-        }
-        if (rowHour) {
-            if (currentHour === rowHour) {
-                changeColor(row, "red");
-            } else if ((currentHour < rowHour) && (currentHour < rowHour + 8)) {
-                changeColor(row, "green");
-            } else if ((currentHour > rowHour) && (currentHour < rowHour + 8)) {
-                changeColor(row, "lightgrey"); 
-            }
-        }
-    });
-}
-changeColor();
+timeTracker();
+let interval = setInterval (timeTracker, 30000);
 
 $("#hour8 .description").val(localStorage.getItem("hour8"));
 $("#hour9 .description").val(localStorage.getItem("hour9"));
@@ -75,6 +55,4 @@ $("#hour2 .description").val(localStorage.getItem("hour2"));
 $("#hour3 .description").val(localStorage.getItem("hour3"));
 $("#hour4 .description").val(localStorage.getItem("hour4"));
 $("#hour5 .description").val(localStorage.getItem("hour5"));
-
-timeTracker();
 })
