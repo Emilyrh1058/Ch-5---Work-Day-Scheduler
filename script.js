@@ -1,7 +1,8 @@
+var displayCurrent = document.getElementById("currentDay")
+var todayDateTime = moment().format("dddd, MMMM Do YYYY, h:mm a");
+
 function loadCurrent() {
-    var displayCurrent = document.getElementById("currentDay")
-    var todayDateTime = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
-    displayCurrent.innerHTML = todayDateTime
+displayCurrent.innerHTML = todayDateTime
 }
 loadCurrent();
 
@@ -39,6 +40,30 @@ function timeTracker() {
         }
     })
 }
+
+function changeColor() {
+    var textRow = document.getElementsByClassName("row");
+    let currentHour = parseInt(moment().format('H'));
+
+    Array.from(textRow).forEach(row => {
+        let
+            rowIdString = row.id,
+            rowHour;
+        if (rowIdString) {
+            rowHour = parseInt(rowIdString);
+        }
+        if (rowHour) {
+            if (currentHour === rowHour) {
+                changeColor(row, "red");
+            } else if ((currentHour < rowHour) && (currentHour < rowHour + 8)) {
+                changeColor(row, "green");
+            } else if ((currentHour > rowHour) && (currentHour < rowHour + 8)) {
+                changeColor(row, "lightgrey"); 
+            }
+        }
+    });
+}
+changeColor();
 
 $("#hour8 .description").val(localStorage.getItem("hour8"));
 $("#hour9 .description").val(localStorage.getItem("hour9"));
