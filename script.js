@@ -21,24 +21,26 @@ $(document).ready(function() {
 // color change
 function timeTracker() {
     var beginningTime = moment().hour();
-
+console.log(beginningTime);
     $(".time-block").each(function () {
         var blockTime = parseInt($(this).attr("id"));
 
+        
+console.log($(this).children()[1]);
         if (blockTime < beginningTime) {
-            $(this).removeClass("future");
-            $(this).removeClass("present");
-            $(this).addClass("past");
+            $(this).children().eq(1).removeClass("future");
+            $(this).children().eq(1).removeClass("present");
+            $(this).children().eq(1).addClass("past");
         }
         else if (blockTime === beginningTime) {
-            $(this).removeClass("past");
-            $(this).removeClass("future");
-            $(this).addClass("present");
+            $(this).children().eq(1).removeClass("past");
+            $(this).children().eq(1).removeClass("future");
+            $(this).children().eq(1).addClass("present");
         }
         else {
-            $(this).removeClass("present");
-            $(this).removeClass("past");
-            $(this).addClass("future");
+            $(this).children().eq(1).removeClass("present");
+            $(this).children().eq(1).removeClass("past");
+            $(this).children().eq(1).addClass("future");
         }
     })
 }
