@@ -1,5 +1,3 @@
-
-
 var displayCurrent = document.getElementById("currentDay")
 var todayDateTime = moment().format("dddd, MMMM Do YYYY, h:mm a");
 
@@ -47,14 +45,14 @@ console.log($(this).children()[1]);
 timeTracker();
 let interval = setInterval (timeTracker, 30000);
 
-$("#hour8 .description").val(localStorage.getItem("hour8"));
-$("#hour9 .description").val(localStorage.getItem("hour9"));
-$("#hour10 .description").val(localStorage.getItem("hour10"));
-$("#hour11 .description").val(localStorage.getItem("hour11"));
-$("#hour12 .description").val(localStorage.getItem("hour12"));
-$("#hour1 .description").val(localStorage.getItem("hour1"));
-$("#hour2 .description").val(localStorage.getItem("hour2"));
-$("#hour3 .description").val(localStorage.getItem("hour3"));
-$("#hour4 .description").val(localStorage.getItem("hour4"));
-$("#hour5 .description").val(localStorage.getItem("hour5"));
+$("#8.description").val(localStorage.getItem("8"));
+$("#9.description").val(localStorage.getItem("9"));
+$("#10.description").val(localStorage.getItem("10"));
+$("#11.description").val(localStorage.getItem("11"));
+$("#12.description").val(localStorage.getItem("12"));
+$("#13.description").val(localStorage.getItem("13"));
+$("#14.description").val(localStorage.getItem("14"));
+$("#15.description").val(localStorage.getItem("15"));
+$("#16.description").val(localStorage.getItem("16"));
+$("#17.description").val(localStorage.getItem("17"));
 })
