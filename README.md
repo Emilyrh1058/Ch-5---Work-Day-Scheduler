@@ -2,7 +2,7 @@
 Work Day scheduler will help you manage your tasks throughout the work hours of 9 a.m. to 5 p.m.
 
 ## Sample of Work Day Scheduler
-![Sample Video](https://drive.google.com/file/d/1OQptWzssFtoptUv3vaLtVehLb3f1och_/view)
+[Sample Video](https://drive.google.com/file/d/1OQptWzssFtoptUv3vaLtVehLb3f1och_/view)
 
 ## User Story
 ````
